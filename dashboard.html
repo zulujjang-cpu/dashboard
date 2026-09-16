@@ -9,21 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#FFFFFF;--grid-fine:#EDF2F8;--grid-bold:#DFE8F3;
-  --ink:#16202B;--ink-soft:#5D6B7A;--ink-faint:#93A1B0;
-  --pen:#1B4FD8;--pen-deep:#13379A;--pen-wash:#EEF3FD;
-  --red:#D6314A;--rule:#DCE4ED;
+  --paper:#FAF6EE;--card:#FFFDF8;
+  --ink:#2E2A24;--ink-soft:#6B6153;--ink-faint:#A79C8A;
+  --pen:#4A6B52;--pen-deep:#37513C;--pen-wash:#F0EEE3;
+  --red:#B0562A;--rule:#E3D9C6;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'IBM Plex Sans KR','Pretendard',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
-  color:var(--ink);background-color:var(--paper);
-  background-image:
-    linear-gradient(var(--grid-fine) 1px,transparent 1px),
-    linear-gradient(90deg,var(--grid-fine) 1px,transparent 1px),
-    linear-gradient(var(--grid-bold) 1px,transparent 1px),
-    linear-gradient(90deg,var(--grid-bold) 1px,transparent 1px);
-  background-size:22px 22px,22px 22px,110px 110px,110px 110px;
+  color:var(--ink);background:var(--paper);
   -webkit-font-smoothing:antialiased;line-height:1.55;
 }
 .wrap{max-width:1180px;margin:0 auto;padding:52px 32px 80px}
@@ -38,9 +32,9 @@ body{
 
 /* 교시 레일 */
 .rail-block{margin:36px 0 0}
-.rail{position:relative;height:60px;display:flex;background:#fff;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.rail{position:relative;height:60px;display:flex;background:var(--card);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
 .seg{position:relative;flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;
-     border-right:1px solid var(--rule);overflow:hidden;white-space:nowrap;gap:2px;background:#fff}
+     border-right:1px solid var(--rule);overflow:hidden;white-space:nowrap;gap:2px;background:var(--card)}
 .seg:last-child{border-right:none}
 .seg .no{font-size:10.5px;font-weight:500;color:var(--ink-faint);letter-spacing:.02em}
 .seg .cls{font-size:15px;font-weight:700;letter-spacing:-.01em}
@@ -51,14 +45,14 @@ body{
 .seg.live .no{color:rgba(255,255,255,.75)}
 .seg.live .cls{color:#fff}
 .seg.live .no.plain{color:#fff}
-.seg.gap{background:repeating-linear-gradient(45deg,#fff,#fff 5px,#F2F6FB 5px,#F2F6FB 10px);border-right-color:var(--rule)}
+.seg.gap{background:repeating-linear-gradient(45deg,var(--card),var(--card) 5px,#F4EEE2 5px,#F4EEE2 10px);border-right-color:var(--rule)}
 .marker{position:absolute;top:0;bottom:0;width:2px;background:var(--red);box-shadow:0 0 0 1px rgba(255,255,255,.55);transition:left .6s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .rail-note{margin-top:11px;font-size:13.5px;color:var(--ink-soft)}
 .rail-note b{color:var(--red);font-weight:600}
 
 /* 날짜 줄 */
 .datebar{display:flex;align-items:center;gap:12px;margin-top:38px;padding-bottom:11px;border-bottom:1px solid var(--ink);flex-wrap:wrap}
-.nav{border:1px solid var(--rule);background:#fff;border-radius:4px;width:30px;height:30px;font:inherit;font-size:15px;color:var(--ink-soft);cursor:pointer;line-height:1}
+.nav{border:1px solid var(--rule);background:var(--card);border-radius:4px;width:30px;height:30px;font:inherit;font-size:15px;color:var(--ink-soft);cursor:pointer;line-height:1}
 .nav:hover{border-color:var(--pen);color:var(--pen)}
 .viewdate{font-size:17px;font-weight:600}
 .viewdate.past{color:var(--ink-soft)}
@@ -67,7 +61,7 @@ body{
 .status{margin-left:auto;font-size:12.5px;color:var(--ink-faint);display:flex;align-items:center;gap:6px}
 .status .dot{width:6px;height:6px;border-radius:50%;background:var(--ink-faint);display:none}
 .status.warn{color:var(--ink-soft)}
-.status.warn .dot{display:block;background:#C98A16}
+.status.warn .dot{display:block;background:#B07A16}
 
 /* 위쪽 2단: 수업 기록 | 할 일 */
 .top{display:grid;grid-template-columns:1.55fr 1fr;margin-top:4px}
@@ -79,13 +73,13 @@ body{
 
 /* 교시 행 */
 .prow{display:grid;grid-template-columns:82px 1fr;gap:2px 14px;padding:13px 0;border-bottom:1px solid var(--rule)}
-.prow.now{background:#FDF3F5}
+.prow.now{background:#FBEDE3}
 .pnum{font-size:11.5px;color:var(--ink-faint);white-space:nowrap;padding-top:4px}
 .pnum b{display:block;font-size:14px;font-weight:600;color:var(--ink)}
 .pline{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0}
 .subj{border:1px solid transparent;border-radius:3px;background:transparent;font:inherit;font-size:15px;font-weight:600;color:var(--pen);padding:3px 6px;flex:0 1 190px;min-width:120px;outline:none}
 .subj:hover{border-color:var(--rule)}
-.subj:focus{border-color:var(--pen);background:#fff}
+.subj:focus{border-color:var(--pen);background:var(--card)}
 .prow.off .subj{color:var(--ink-faint);text-decoration:line-through}
 .ptag{font-size:11px;color:#127C56;flex:0 0 auto}
 .pacts{display:flex;gap:9px;flex:0 0 auto}
@@ -95,7 +89,7 @@ body{
 .pcontent{grid-column:2;width:100%;min-height:46px;resize:vertical;border:1px solid transparent;border-radius:3px;
   padding:8px 10px;font:inherit;font-size:14.5px;line-height:1.65;background:transparent;color:var(--ink);outline:none}
 .pcontent:hover{border-color:var(--rule)}
-.pcontent:focus{border-color:var(--pen);background:#fff}
+.pcontent:focus{border-color:var(--pen);background:var(--card)}
 .pcontent::placeholder{color:var(--ink-faint)}
 
 /* 할 일 */
@@ -127,11 +121,11 @@ body{
 .empty{font-size:14px;color:var(--ink-faint);line-height:1.6}
 
 .links{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule)}
-.links a{display:flex;align-items:center;gap:9px;padding:12px 11px;background:#fff;text-decoration:none;color:var(--ink);font-size:13.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.links a{display:flex;align-items:center;gap:9px;padding:12px 11px;background:var(--card);text-decoration:none;color:var(--ink);font-size:13.5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .links a:hover{background:var(--pen-wash);color:var(--pen)}
 .links a:focus-visible{outline:2px solid var(--pen);outline-offset:-2px}
-.lgroup{grid-column:1/-1;background:#fff;padding:14px 11px 5px;font-size:11px;font-weight:600;color:var(--ink-faint);letter-spacing:.06em}
-.fav{flex:0 0 auto;width:19px;height:19px;border-radius:3px;display:flex;align-items:center;justify-content:center;background:#EEF2F8;color:var(--ink-soft);font-size:11px;font-weight:600}
+.lgroup{grid-column:1/-1;background:var(--card);padding:14px 11px 5px;font-size:11px;font-weight:600;color:var(--ink-faint);letter-spacing:.06em}
+.fav{flex:0 0 auto;width:19px;height:19px;border-radius:3px;display:flex;align-items:center;justify-content:center;background:#F0E9DA;color:var(--ink-soft);font-size:11px;font-weight:600}
 .fav img{width:19px;height:19px;border-radius:3px;display:block}
 
 /* 반별 기록 */
@@ -148,7 +142,7 @@ body{
 .loglist .what{white-space:pre-wrap;word-break:break-word}
 
 /* 설정 */
-.gear{position:fixed;top:18px;right:18px;z-index:20;border:1px solid var(--rule);background:#fff;border-radius:4px;padding:7px 13px;font:inherit;font-size:12.5px;color:var(--ink-soft);cursor:pointer}
+.gear{position:fixed;top:18px;right:18px;z-index:20;border:1px solid var(--rule);background:var(--card);border-radius:4px;padding:7px 13px;font:inherit;font-size:12.5px;color:var(--ink-soft);cursor:pointer}
 .gear:hover{border-color:var(--pen);color:var(--pen)}
 .sheet{display:none;margin-top:44px;padding-top:26px;border-top:1px solid var(--ink)}
 .sheet.open{display:block}
@@ -156,7 +150,7 @@ body{
 .field{display:flex;flex-direction:column;gap:7px}
 .field label{font-size:12.5px;font-weight:600}
 .field .hint{font-size:12px;color:var(--ink-faint);font-weight:400;line-height:1.5;white-space:pre-line}
-.field input,.field select,.field textarea{border:1px solid var(--rule);border-radius:4px;padding:9px 11px;font:inherit;font-size:13.5px;color:var(--ink);background:#fff;outline:none}
+.field input,.field select,.field textarea{border:1px solid var(--rule);border-radius:4px;padding:9px 11px;font:inherit;font-size:13.5px;color:var(--ink);background:var(--card);outline:none}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--pen)}
 .field textarea{min-height:150px;resize:vertical;line-height:1.7}
 .row{display:flex;gap:9px}
@@ -164,7 +158,7 @@ body{
 .row input{flex:1;min-width:0}
 .btn{border:1px solid var(--pen);background:var(--pen);color:#fff;border-radius:4px;padding:9px 17px;font:inherit;font-size:13.5px;cursor:pointer;white-space:nowrap}
 .btn:hover{background:var(--pen-deep);border-color:var(--pen-deep)}
-.btn.ghost{background:#fff;color:var(--pen)}
+.btn.ghost{background:var(--card);color:var(--pen)}
 .btn.ghost:hover{background:var(--pen-wash)}
 .result{font-size:12.5px;color:var(--ink-soft);margin-top:7px;line-height:1.6}
 .result.bad{color:var(--red)}
